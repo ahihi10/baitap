@@ -1,0 +1,70 @@
+<%- include('layout', { body: `<div class="content">
+
+    <div>
+        <h2 style="text-align: center;font-size: 40px;">Gamification và học tập dựa trên trò chơi</h2>
+        <h1>Mẫu câu hỏi</h1>
+        <div class="copy-content">
+        <p>
+            1. Gợi ý cho tôi 4-5 hoạt động nhỏ dựa trên trò chơi để giúp học viên củng cố các khái niệm mới về [chủ đề]. Đặt tên cho nó và tóm tắt các quy tắc trò chơi.</p><br>
+           <p> 2. Hướng dẫn tôi một số kỹ thuật để kết hợp phần thưởng và điểm thưởng vào các hoạt động học tập dựa trên trò chơi.
+        </p><br>
+           <p> 3. Đề xuất cho tôi các công cụ e-Learning để phát triển trải nghiệm học tập được ứng dụng vào trò chơi, đặc biệt dành cho trực tuyến hoặc ảo.
+        </p>
+            <br>
+           <p>4. Đề xuất cho tôi ít nhất 10 tài liệu nghiên cứu học thuật liên quan đến tác động của gamification đến kết quả học tập của người học. 
+        </p><br>
+           <p>5. Thiết kế giảng dạy của tôi sẽ bao gồm một số hoạt động dựa trên trò chơi. Bạn có thể cung cấp ví dụ về các dạng trò chơi tương ứng với mục tiêu học tập cụ thể bằng cách sử dụng các công cụ soạn thảo không?
+        </p>
+        </div>
+    </div>
+
+    <script>
+        var questions = document.querySelectorAll('.content p');
+
+        questions.forEach(function(question, index) {
+            // Đặt id cho mỗi phần tử p là "question" + số thứ tự
+            question.id = "question" + (index + 1);
+        });
+
+        questions.forEach(function(question) {
+            // Lấy id của mỗi phần tử p
+            var questionId = question.id;
+
+            // Lấy phần tử p tương ứng với id
+            var questionElement = document.getElementById(questionId);
+
+            // Tạo một nút "Copy"
+            var copyButton = document.createElement("button");
+            copyButton.textContent = "Sao chép";
+            copyButton.className = "copy-button";
+
+            // Tạo một hàm onClick để sao chép nội dung khi nút được nhấp vào
+            copyButton.onclick = function() {
+                copyText(questionId, copyButton);
+            };
+
+            // Thêm nút "Copy" vào sau phần tử p
+            questionElement.parentNode.insertBefore(copyButton, questionElement.nextSibling);
+        });
+
+        // Hàm sao chép nội dung
+        function copyText(elementId, button) {
+            var text = document.getElementById(elementId).innerText;
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            button.textContent = "Đã sao chép";
+
+            // Sau 3 giây, chuyển nút đã sao chép về nút sao chép bình thường
+            setTimeout(function() {
+                button.textContent = "Sao chép";
+                button.disabled = false;
+            }, 3000);
+        }
+    </script>
+
+    <script src="script.js"></script>
+    ` }) %>

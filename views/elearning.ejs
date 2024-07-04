@@ -1,0 +1,73 @@
+<%- include('layout', { body: `<div class="content">
+    
+    <div>
+        <h2 style="text-align: center; font-size: 40px; margin-left: 80px;">Công cụ eLearning và thiết kế eLearning</h2>
+        
+            <h1>Mẫu câu hỏi</h1>
+            <div class="copy-content">
+                <p>1. Gợi ý cho tôi công cụ soạn thảo hữu ích để tạo ra nội dung học trực tuyến tương tác và thú vị, bao gồm cả giá cả và thời gian dùng thử.
+                </p><br>
+                <p>2. Tạo cho tôi bảng phân biệt các công cụ soạn thảo với PowerPoint.
+                </p><br>
+                <p>3. Gợi ý cho tôi các công cụ soạn thảo cho phép tôi nhập PowerPoint.
+                </p><br>
+                <p>4. Gợi ý cho tôi các cách sử dụng công nghệ cho các đánh giá, như mô phỏng tương tác hoặc kiểm tra trực tuyến.
+                </p><br>
+                <p>5. Cung cấp cho tôi 10 tên LMS phù hợp cho các công ty SME cung cấp các khóa học eLearning với [điều kiện].
+                </p><br>
+
+            </div>
+        
+        
+    </div>
+
+    <script>
+        var questions = document.querySelectorAll('.content p');
+
+        questions.forEach(function(question, index) {
+            // Đặt id cho mỗi phần tử p là "question" + số thứ tự
+            question.id = "question" + (index + 1);
+        });
+
+        questions.forEach(function(question) {
+            // Lấy id của mỗi phần tử p
+            var questionId = question.id;
+
+            // Lấy phần tử p tương ứng với id
+            var questionElement = document.getElementById(questionId);
+
+            // Tạo một nút "Copy"
+            var copyButton = document.createElement("button");
+            copyButton.textContent = "Sao chép";
+            copyButton.className = "copy-button";
+
+            // Tạo một hàm onClick để sao chép nội dung khi nút được nhấp vào
+            copyButton.onclick = function() {
+                copyText(questionId, copyButton);
+            };
+
+            // Thêm nút "Copy" vào sau phần tử p
+            questionElement.parentNode.insertBefore(copyButton, questionElement.nextSibling);
+        });
+
+        // Hàm sao chép nội dung
+        function copyText(elementId, button) {
+            var text = document.getElementById(elementId).innerText;
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            button.textContent = "Đã sao chép";
+
+            // Sau 3 giây, chuyển nút đã sao chép về nút sao chép bình thường
+            setTimeout(function() {
+                button.textContent = "Sao chép";
+                button.disabled = false;
+            }, 3000);
+        }
+    </script>
+
+    <script src="script.js"></script>
+    ` }) %>

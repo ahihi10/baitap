@@ -1,0 +1,85 @@
+<%- include('layout', { body: `<div class="content">
+
+    <div>
+        <h2 style="text-align: center;font-size: 40px;">Quảng cáo</h2>
+        <h1>Mẫu câu hỏi</h1>
+        <div class="copy-content">
+        <p>1.Hãy cho tôi gợi ý về việc đặt tên cho quảng cáo cho [sản phẩm/dịch vụ] hấp dẫn, thu hút số lượng lớn người xem. </p><br>
+        <p>2.Hãy cung cấp cho tôi danh sách [số lượng] tiêu đề chính hấp dẫn cho trang web về [loại sản phẩm/dịch vụ]</p><br>
+        <p>3. Tạo một bản sao trang web [nêu số từ] giới thiệu cho khách truy cập về [chi tiết sản phẩm/dịch vụ].</p><br>
+        <p>4. Hãy giúp tôi viết nội dung cho quảng cáo Google với tiêu đề [ tên tiêu đề ] và trong đó gồm các tính năng trong phần mô tả [thêm điểm], văn bản cần [số lượng] ký tự, với đối tượng mục tiêu là [nêu rõ đối tượng, mục tiêu]</p><br>
+        <p>5. Hãy cho tôi ý tưởng về viết tiêu đề hấp dẫn cho [sự kiện, hội nghị hoặc bất cứ điều gì khác] về chủ đề [tên chủ đề]</p><br>
+        <p>6. Hãy giúp tôi viết mô tả sản phẩm bao gồm các tính năng [thêm thông số kỹ thuật] trong đó gồm các từ khóa mục tiêu [thêm từ khóa được phân tách bằng dấu phẩy].
+        </p><br>
+        <p>7. Hãy giúp tôi đề xuất [số lượng] ý tưởng sao chép độc đáo cho buổi ra mắt sản phẩm [thêm thông tin chi tiết về buổi ra mắt sản phẩm]
+        </p>
+        <p>8. Hãy giúp tôi viết thông cáo báo chí cho thông báo của công ty [thêm thông tin chi tiết về thông báo của công ty]
+        </p><br>
+        <p>9. Hãy giúp tôi tạo một lời chứng thực sản phẩm hấp dẫn từ quan điểm của một khách hàng hài lòng [thêm chi tiết sản phẩm]
+        </p><br>
+        <p>10. Hãy giúp tôi tạo[số lượng] các tuyên bố về tầm nhìn và sứ mệnh có sức ảnh hưởng và ngắn gọn cho công ty của tôi [ cung cấp thông tin chi tiết về công ty và những điểm bạn muốn đưa vào]
+        </p>
+        <br>
+        <p>11.Hãy giúp tôi tạo đề xuất có giá trị cho [tên công ty] cung cấp [chi tiết sản phẩm/dịch vụ] , đảm bảo rằng nó truyền đạt tất cả lợi ích của việc chọn [sản phẩm/dịch vụ]
+        </p><br>
+        <p>12.Hãy giúp tôi tạo danh sách các tiêu đề [số lượng] cho quảng cáo [Facebook, linkedIn, Instagram] quảng bá cho [chi tiết sản phẩm/dịch vụ]
+        </p><br>
+        <p>13.Hãy giúp tôi tạo một bản sao quảng cáo hấp dẫn trên Facebook bằng cách sử dụng dòng tiêu đề [thêm dòng tiêu đề] và quảng cáo [chi tiết sản phẩm/dịch vụ]  và đảm bảo rằng nó đang nhắm đúng mục tiêu [chỉ định đối tượng mục tiêu]
+        </p><br>
+        <p>14.Hãy giúp tôi tạo [số lượng] khẩu hiệu tiếp thị giải thích điểm bán hàng độc đáo của [tên sản phẩm/dịch vụ]
+        </p><br>
+        <p>15. Hãy cho tôi ý tưởng về chiêu quảng cáo cho sản phẩm [tên sản phẩm/dịch vụ]
+        </p>
+        </div>
+    </div>
+
+    <script>
+        var questions = document.querySelectorAll('.content p');
+
+        questions.forEach(function (question, index) {
+            // Đặt id cho mỗi phần tử p là "question" + số thứ tự
+            question.id = "question" + (index + 1);
+        });
+
+        questions.forEach(function (question) {
+            // Lấy id của mỗi phần tử p
+            var questionId = question.id;
+
+            // Lấy phần tử p tương ứng với id
+            var questionElement = document.getElementById(questionId);
+
+            // Tạo một nút "Copy"
+            var copyButton = document.createElement("button");
+            copyButton.textContent = "Sao chép";
+            copyButton.className = "copy-button";
+
+            // Tạo một hàm onClick để sao chép nội dung khi nút được nhấp vào
+            copyButton.onclick = function () {
+                copyText(questionId, copyButton);
+            };
+
+            // Thêm nút "Copy" vào sau phần tử p
+            questionElement.parentNode.insertBefore(copyButton, questionElement.nextSibling);
+        });
+
+        // Hàm sao chép nội dung
+        function copyText(elementId, button) {
+            var text = document.getElementById(elementId).innerText;
+            var textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            button.textContent = "Đã sao chép";
+
+            // Sau 3 giây, chuyển nút đã sao chép về nút sao chép bình thường
+            setTimeout(function () {
+                button.textContent = "Sao chép";
+                button.disabled = false;
+            }, 3000);
+        }
+    </script>
+
+    <script src="script.js"></script>
+    ` }) %>

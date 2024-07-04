@@ -1,0 +1,49 @@
+<%- include('layout', { body: ` <div class="content">
+    <div class="main-content">
+        <div>
+            <h2 style="color: #5083C7;">Thư viện câu hỏi về content</h2>
+            <div class="row">
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/video">
+                            <img src="images/podcast1.png">
+                        </a><br>
+                        <a href="/video"><b>Video và Podcast</b></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/social">
+                            <img src="images/social2.png">
+                        </a><br>
+                        <a href="/social"><b>Truyền thông và xã hội</b></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/ads">
+                            <img src="images/ads1.webp">
+                        </a><br>
+                        <a href="/ads"><b>Quảng cáo</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        // Thêm lớp 'show' và kích hoạt hiệu ứng rõ dần cho tất cả các mục document-item
+        window.addEventListener('load', function () {
+            var items = document.querySelectorAll('.document-item');
+            items.forEach(function (item) {
+                item.classList.add('show');
+            });
+        });
+    </script>
+
+
+    <script src="script.js"></script>
+    ` }) %>

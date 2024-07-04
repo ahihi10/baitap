@@ -1,0 +1,80 @@
+<%- include('layout', { body: ` <div class="content">
+    <div class="main-content">
+        <div>
+            <h2 style="color: #5083C7;">Thư viện câu hỏi về giáo dục</h2>
+            <div class="row">
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/elearning">
+                            <img src="images/elearning.svg">
+                        </a><br>
+                        <a href="/elearning"><b>Công cụ eLearning và thiết kế eLearning</b></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/game">
+                            <img src="images/game1.png">
+                        </a><br>
+                        <a href="/game"><b>Gaminfication và học tập dựa trên trò chơi</b></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/evaluate">
+                            <img src="images/evaluate1.jpg">
+                        </a><br>
+                        <a href="/evaluate"><b>Đánh giá và thiết kế đánh giá</b></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/plan">
+                            <img src="images/plan.svg">
+                        </a><br>
+                        <a href="/plan"><b>Kế hoạch bài học</b></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/plagiarism">
+                            <img src="images/plagiarism1.webp">
+                        </a><br>
+                        <a href="/plagiarism"><b>Đóng vai trò là người kiểm tra đạo văn</b></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/grammar">
+                            <img src="images/grammar1.svg">
+                        </a><br>
+                        <a href="/grammar"><b>Đóng vai trò là người kiểm tra ngữ pháp</b></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    </div>
+
+    <script>
+        //Thêm lớp 'show' và kích hoạt hiệu ứng rõ dần cho tất cả các mục document-item
+        window.addEventListener('load', function () {
+            var items = document.querySelectorAll('.document-item');
+            items.forEach(function (item) {
+                item.classList.add('show');
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+    ` }) %>

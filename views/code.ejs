@@ -1,0 +1,59 @@
+<%- include('layout', { body: ` <div class="content">
+    <div class="main-content">
+        <div>
+            <h2 style="color: #5083C7;">Thư viện câu hỏi về viết code</h2>
+            <div class="row">
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/writecode">
+                            <img src="images/code1.jpg">
+                        </a><br>
+                        <a href="/writecode"><b>Viết code</b></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/bug">
+                            <img style="height: 260px;" src="images/bug1.jpg">
+                        </a><br>
+                        <a href="/bug"><b>Đánh giá và gỡ lỗi</b></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/explain">
+                            <img src="images/explain2.webp">
+                        </a><br>
+                        <a href="/explain"><b>Giải thích code</b></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-4">
+                    <div class="document-item">
+                        <a href="/optimize">
+                            <img src="images/optimize1.svg">
+                        </a><br>
+                        <a href="/optimize"><b>Tối ưu code</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        // Thêm lớp 'show' và kích hoạt hiệu ứng rõ dần cho tất cả các mục document-item
+        window.addEventListener('load', function () {
+            var items = document.querySelectorAll('.document-item');
+            items.forEach(function (item) {
+                item.classList.add('show');
+            });
+        });
+    </script>
+
+    <script src="script.js"></script>
+    ` }) %>

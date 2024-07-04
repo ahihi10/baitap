@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="images/clover.png" />
+    <title>Thư viện câu hỏi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 800px) {
+            .menu-icon {
+                display: block;
+            }
+            
+        }
+        
+        img{
+            padding-left:5%;
+            padding-bottom: 0%;
+            max-height: 400px;
+            max-width: 1280px;
+        }
+        
+        .carousel-control-next-icon, .carousel-control-prev-icon {
+            background-color:  #5083C7;
+            border-radius: 50%;
+            padding: 15%;
+        }
+        a {
+            text-decoration: none;
+        }
+        a > p {
+        font-size: 24px;
+        font-weight: bold;
+        color: blue; 
+        margin-top: 10px; 
+        text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="/home"><b>Trang chủ</b></a></li>
+                <li class="dropdown">
+                    <a href="/edu"><b>Mục lục</b></a>
+                    <ul class="submenu">
+                        <li><a href="/edu">Về giáo dục</a></li>
+                        <li><a href="/writecontent">Về content</a></li>
+                        <li><a href="/code">Về viết code</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about"><b>Thông tin về chúng tôi</b></a></li>
+            </ul>
+
+            <div class="search">
+                <form onsubmit="search(event)">
+                    <input type="text" id="searchInput" placeholder="Nhập tìm kiếm...">
+                    <button type="submit">🔍</button>
+                </form>
+            </div>
+            
+
+        </nav>
+    </header>
+    
+
+    <main>
+        <%- body %>
+    </main>
+
+    <a class="scroll-to-top" id="scrollToTopButton"></a>
+
+    <hr width="90%" size="5px" color="blue" style="margin: 0 auto; border: none;">
+
+    <span style="font-size: 20px; color: darkgray; text-align: left; padding-left: 70px;">Bộ câu hỏi liên quan</span>
+
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="/elearning">
+                    
+                <img class="d-block w-100" src="images/el.svg" alt="First slide">
+                <p>Công cụ eLearning và thiết kế eLearning</p>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="/ads">
+                    <img class="d-block w-100" src="images/ads1.svg" alt="Second slide">
+                <p>Quảng cáo</p>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="/game">
+                    <img class="d-block w-100" src="images/game1.svg" alt="Third slide">
+                <p>Gamification và học tập dựa trên trò chơi
+                </p>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="/grammar">
+                    <img class="d-block w-100" src="images/grammar.svg" alt="Fourth slide">
+                <p>Đóng vai trò là người kiểm tra ngữ pháp
+                </p>
+                </a>
+            </div>
+            
+            <div class="carousel-item">
+                <a href="/plan">
+                    <img class="d-block w-100" src="images/plan1.svg" alt="Fifth slide">
+                <p>Kế hoạch bài học
+                </p>
+                </a>
+            </div>
+            
+            <div class="carousel-item">
+                <a href="video">
+                    <img class="d-block w-100" src="images/video.svg" alt="Sixth slide">
+                <p>Video và Podcast
+                </p>
+                </a>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true" ></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            // Bắt sự kiện khi thanh chuyền hoàn thành việc chuyển slide
+            $('#myCarousel').on('slid.bs.carousel', function (e) {
+                // Lấy index của slide hiện tại và hiển thị nó trong console
+                var index = $('.carousel-item.active').index() + 1;
+                console.log('Slide hiện tại: ' + index);
+            });
+        });
+    </script>
+    
+
+    <footer>
+        
+        <div class="row">
+            <div class="column">
+                <a href="/about">Thông tin của chúng tôi</a>
+            </div>
+            <div class="column">
+                <a href="/privacy">Chính sách riêng tư</a>
+            </div>
+            <div class="column">
+                <a href="/termsofuse">Điều khoản sử dụng</a>
+            </div>
+        </div>
+
+        <p style="color: black;">&copy; 2024 Phạm Liên và Thuỳ Linh.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the scroll-to-top button element
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+
+            // Add click event listener to scroll-to-top button
+            scrollToTopButton.addEventListener('click', () => {
+                // Scroll to the top of the page
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
