@@ -1,8 +1,8 @@
 <%- include('layout', { body: `<div class="content">
 
     <div>
-        <h2 style="text-align: center;font-size: 40px;">Quảng cáo</h2>
-        <h1>Mẫu câu hỏi</h1>
+        <h2 style="text-align: center;font-size: 30px; padding-top: 50px;">Quảng cáo</h2>
+        <h1 style="font-size: 25px;">Mẫu câu hỏi</h1>
         <div class="copy-content">
         <p>1.Hãy cho tôi gợi ý về việc đặt tên cho quảng cáo cho [sản phẩm/dịch vụ] hấp dẫn, thu hút số lượng lớn người xem. </p><br>
         <p>2.Hãy cung cấp cho tôi danh sách [số lượng] tiêu đề chính hấp dẫn cho trang web về [loại sản phẩm/dịch vụ]</p><br>
@@ -34,7 +34,7 @@
     </div>
 
     <script>
-        var questions = document.querySelectorAll('.content p');
+        let questions = document.querySelectorAll('.content p');
 
         questions.forEach(function (question, index) {
             // Đặt id cho mỗi phần tử p là "question" + số thứ tự

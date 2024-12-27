@@ -1,5 +1,5 @@
 function search(event) {
-  event.preventDefault(); // Ngăn chặn hành động mặc định của form
+  event.preventDefault(); 
 
   let input = document.getElementById('searchInput').value.toLowerCase();
   let links = document.querySelectorAll('.document-item a');
@@ -21,7 +21,6 @@ function search(event) {
     if (paragraphText.includes(input)) {
         paragraph.style.display = 'block';
 
-        // Tìm nút sao chép của đoạn văn hiện tại và hiển thị nó
         let copyButton = paragraph.nextElementSibling;
         if (copyButton && copyButton.classList.contains('copy-button')) {
             copyButton.style.display = 'block';
@@ -29,7 +28,6 @@ function search(event) {
     } else {
         paragraph.style.display = 'none';
 
-        // Ẩn nút sao chép của đoạn văn không được hiển thị
         let copyButton = paragraph.nextElementSibling;
         if (copyButton && copyButton.classList.contains('copy-button')) {
             copyButton.style.display = 'none';

@@ -1,68 +1,82 @@
-<%- include('layout', { body: `
-    <style>
-        .content {
-            padding: 100;
-            display: flex;
-            flex-direction: column;
-            max-width: 1500px;
-            margin: 0 auto;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            padding: 20px;
-        }
-        .navbar-item {
-            padding: 20px 50px;
-            cursor: pointer;
-            background-color: #fff;
-            border: 1px solid  #5083C7;
-            font-size: 24px;
-            border-radius: 50px;
-            transition: background-color 0.3s;
-        }
-        .navbar-item:hover {
-            background-color: #5083C7;
-        }
-        .main-content {
-            padding: 20px;
-            display: none;
-        }
-        .main-content.active {
-            display: block;
-        }
-        
+<%- include('layout', { body: ` <style>
+    .content {
+    padding: 100;
+    display: flex;
+    flex-direction: column;
+    max-width: 1500px;
+    margin: 0 auto;
+    }
+    .navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    }
+    .navbar-item {
+    padding: 20px 50px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #5083B6;
+    border: 1px solid #5083C7;
+    font-size: 24px;
+    font-weight: lighter;
+    border-radius: 50px;
+    transition: background-color 0.3s;
+    }
+    .navbar-item:hover {
+    background-color: #5083C7;
+    color:#fff;
+    }
+    .main-content {
+    padding: 20px;
+    display: none;
+    }
+    .main-content.active {
+    display: block;
+    }
+
     </style>
-    
+
+    <div class="row1" style=" padding-top: 90px; background-color: #99b7e0">
+        <div class="column1"><h3 style="padding-left: 150px; padding-top: 50px; color: #fff; font-size: 40px; font-weight: lighter;"><b>Tổng quan <br> cách đặt câu hỏi </b></h3></div>
+        <div class="column1" style="padding-right: 90px;"> 
+            <div class="row1">
+                <div class="column1" style="border: #fff 1px solid; border-radius: 10px; background-color: #5083C7; color: white;">Nói chuyện với Chat GPT như con người</div>  <br>
+                <div class="column1" style="border: #fff 1px solid; border-radius: 10px; background-color: white; color: #5083C7;"> Câu hỏi đặt ra phải rõ ràng cụ thể</div><br>
+            </div>
+            <div class="row1">
+                <div class="column1" style="border: #fff 1px solid; border-radius: 10px; background-color: white; color: #5083C7;"> Sử dụng đúng định dạng và giọng điệu</div><br>
+                <div class="column1" style="border: #fff 1px solid; border-radius: 10px; background-color: #5083C7; color: white;"> Cung cấp ngữ cảnh trong câu hỏi</div>
+            </div>
+                
+        </div>
+        
+    </div>
+
     <div class="content">
-        <h1 style="text-align: center; padding-top: 2px; color:  #5083C7;">Thư viện câu hỏi</h1>
+        <h1 style="text-align: center; padding-top: 2px; color:  #5083C7; font-weight: lighter;"><b>Thư viện câu hỏi</b></h1>
         <div class="navbar">
-            <div class="navbar-item" onclick="window.location.href='edu'"><b>Lĩnh vực giáo dục</b></div>
-            <div class="navbar-item" onclick="window.location.href='writecontent'"><b>Lĩnh vực viết content</b></div>
-            <div class="navbar-item" onclick="window.location.href='code'"><b>Lĩnh vực về viết code</b></div>
+            <div class="navbar-item" onclick="window.location.href='edu'">Lĩnh vực giáo dục</div>
+            <div class="navbar-item" onclick="window.location.href='writecontent'">Lĩnh vực viết content</div>
+            <div class="navbar-item" onclick="window.location.href='code'">Lĩnh vực về viết code</div>
         </div>
     </div>
 
-    <div style="opacity: 0; animation: fadeIn 3s forwards;">
-    <h2>Tổng quan cách đặt câu hỏi </h2>
-    <p style="text-align: left; padding-left: 40%;"> 
-        Nói chuyện với Chat GPT như con người <br>
-        Câu hỏi đặt ra phải rõ ràng cụ thể<br>
-        Sử dụng đúng định dạng và giọng điệu<br>
-        Cung cấp ngữ cảnh trong câu hỏi
-    </p>
-</div>
 
-<style>
-    @keyframes fadeIn {
-        from { opacity: -0.5; }
-        to { opacity: 1; }
-    }
-</style>
 
-    
-    
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: -0.5;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+ 
     <script src="script.js"></script>
-   
+
     ` }) %>
-    

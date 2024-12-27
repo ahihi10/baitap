@@ -1,7 +1,8 @@
-const express = require('express');
-const app = express();
+
 const path = require('path');
 const bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
